@@ -1,0 +1,18 @@
+1. cm_code 원핫 인코딩으로 더미변수로 변환
+
+2. scaling 과 회귀 알고리즘으로 여러 모델을 만들어가며 정확도 비교, 변수의 개수를
+변화시켜가며 위의 과정 반복
+
+알고리즘 5개, 변수 3~6, 고정 변수 2개(매출, 총유동인구)
+ 
+알고리즘 - linearregression, polynomial regression, ridge, laso, 
+	decision Tree Regressor
+3. 보고서 작성
+
+
+
+
+food md1
+ -> 유동인구 (total 10,20,30,40,50,60), 상주인구 (total 10,20,30,40,50,60), 
+   유사업종수, 직장인구  y - > 매출액
+

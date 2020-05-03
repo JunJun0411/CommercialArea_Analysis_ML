@@ -1,0 +1,19 @@
+test=pd.DataFrame(data,columns=['act_jipyo_value','growth_jipyo_value'])
+
+
+-> 찾고자 하는 기준으로 dataFrame 나누기 
+
+data_points=test.values
+kmeans=KMeans(n_clusters=3).fit(data_points)
+
+->cluster 개수로 분류 
+
+kmeans.labels_
+test['cluster_id']=kmeans.labels_
+-> 분류한 것들 label 달아주기
+
+label 별로 나누기 
+
+test0=test[test['cluster_id'] == 0]
+test1=test[test['cluster_id'] == 1]
+test2=test[test['cluster_id'] == 2]

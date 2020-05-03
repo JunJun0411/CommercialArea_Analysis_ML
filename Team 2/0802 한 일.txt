@@ -1,0 +1,53 @@
+test  방법:
+1.data에서 기준으로 하고자 하는 임의의 열 2개 선택후 분리 
+2.분리된 data로 분류 3개 집단 으로 
+3. 분리된 data들을 cluster_id 라는 임의의 열을 추가하여 넘버링
+4. 넘버링된 data set 과 원래 set 을 merge 하면 원래 data에 cluster_id 추가됨
+5. mean()으로 비교
+
+
+1: 성장성 활성도 
+
+비교해본결과 더 많은 데이터들이 있어야 유의미한지 알 수 있을듯
+
+
+   순위       성장성          활성도         
+A집단 |         2                1
+B집단 |         1                2(3과 큰차이 없음)
+C집단 |         3                3(3과 큰차이 없음)
+
+
+
+A집단:
+over_jisu_value              46.533834
+act_jipyo_value              61.766061
+growth_jipyo_value           49.501881
+safety_jipyo_value           54.771565
+business_month_avg           72.727855
+store_number                  4.416408
+simillar_store_number         5.066137
+
+B집단:
+over_jisu_value              47.682939
+act_jipyo_value              50.251606
+growth_jipyo_value           73.104137
+safety_jipyo_value           54.559830
+business_month_avg           67.992396
+store_number                  2.453335
+simillar_store_number         2.625728
+
+C집단:
+over_jisu_value              50.006687
+act_jipyo_value              49.879207
+growth_jipyo_value           44.446295
+safety_jipyo_value           54.519470
+business_month_avg           76.977928
+store_number                  2.915133
+simillar_store_number         3.165672
+
+
+
+
+그래서 sales 의 매출부분을 합침
+
+data_new 로 올려놓음

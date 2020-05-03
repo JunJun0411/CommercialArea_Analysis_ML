@@ -1,0 +1,18 @@
+8월 18일 한일
+
+age로 group by 피벗 테이블 만들어서 train/ test 데이터 나누고
+그 데이터 group_train(test)_data fh 저장함
+
+피벗테이블 말고 원래 데이터에서 age랑 service_code 더미변수로 만들어서 sklearn으로 linearRegression 돌림
+더미변수 만든 dataframe 저장 안함 코드에 있음
+
+돌리고 나니까 음수값 발견 ㅋㅋ 시발
+train이랑 test에서 음수값 빼서 다시 train/test data 만듬 -> 저장X 코드에 있음
+
+선형회귀 돌렸는데 RMSE, MSE, MAE MAPE 를 확인해봤는데 해석 x
+
+멘토님께 물어볼거 : lasso , Ridge 사용..?
+
+할 것 : x변수 조합 찾아보기 (소득분위 추가해서) 다시 돌려보기
+	두번째 분류 or 계산 까지 하면 끝~~
+	

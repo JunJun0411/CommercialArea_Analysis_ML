@@ -1,0 +1,7 @@
+life_essential 연령대별 moving, living people pca로 차원 하나로 축소
+ols 돌려봄,,, 해석 불가능 ㅎ
+
+lasso 돌려봄,,, score망 ㅎ
+
+stepwise 필요
+

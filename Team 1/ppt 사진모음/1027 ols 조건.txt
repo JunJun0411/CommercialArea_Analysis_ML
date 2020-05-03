@@ -1,0 +1,3 @@
+조건 
+모델 전체의 
+r square값이 크면서 aic 가 작고 prob f-test가 작은거

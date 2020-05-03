@@ -1,0 +1,17 @@
+1. food md1 + md3, life selection md3 moving + living pca돌리고 스케일링 해서 stepwise 까지 해서 ols 돌려봄
+--> r square 값이 너무 작아,, aic값도 너무 커
+
+해볼일
+1. sklearn 패키지로 pca 돌려보고 그걸로 stepwise 
+2. 알고리즘((lasso , ridge):ols로 가능 
+ (https://datascienceschool.net/view-notebook/83d5e4fff7d64cb2aecfd7e42e1ece5e/),
+ randomforest, dnn) 여러개 써서 돌려보기
+3. ols I(x**2) 이거랑 알파값 조절해서 돌려보기 
+4. 발표용 ppt 만들기
+
+
+멘토님 저희가 저번달 킥오프 미팅에서 내주신 숙제에서 pca로 condition number 줄이고 step wise로 변수
+선택되게 하라고 하셔서 그렇게 해봤는데요! pca를 할때는 연령대별 유동/상주인구를 각 하나의 변수로도 합쳐보고 
+sklearn을 이용하여 eigen vector값 보고 합치는것도 해보고 둘다 step wise로 linear regressor를 돌려봤는데 
+rmse와 mape값도 엄청 크게 나오고 보라고 하셨던 adj. R-squared, AIC, t값, Prob(F-statistic)
+값도 제대로 나오는게 없어서 더이상 뭘 해야할지 모르겠습니다 ㅜㅜ 

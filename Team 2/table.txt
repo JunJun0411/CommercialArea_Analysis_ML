@@ -1,0 +1,29 @@
+(총)유동인구 : (total_)moving_people
+매출금액 : sales_amount
+점포수 : store_number
+당월매출금액 : c_month_sales_amount
+당월매출건수 : c_month_sales_count
+10-60 : 10's
+서비스업종코드 : service_code
+서비스업종코드명 : service_code_name
+평균영업개월수 : business_month_avg
+매출비율 : sales_rate
+기준_년월_코드: dates
+상권_코드: cm_code
+상권_코드_명: cm_code_name
+월_평균_소득_금액:month_income_avg
+ 소득구간코드:income_code
+지출 총금액:total_expenditure
+과밀 지수 구간 코드: over_jisu_code
+활성도 지표 구간 코드:act_jipyo_code
+성장성 지표 구간 코드: growth_jipyo_code
+안정성 지표 구간 코드:safety_jipyo_code
+과밀 지수 명: over_jipyo_code_name
+활성도 지표 명:act_jipyo_code_name
+성장성 지표 명: growth_jipyo_code_name
+안정성 지표 명:safety_jipyo_code_name
+과밀 지수 값:over_jisu_value
+활성도 지표 값:act_jipyo_value
+성장성 지표 값:growth_jipyo_value
+안정성 지표값:safety_jipyo_value
+유사업종점포수:similar_store_number

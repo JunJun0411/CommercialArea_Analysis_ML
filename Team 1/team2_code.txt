@@ -1,0 +1,147 @@
+dates	cm_code	service_code
+over_jisu_value	
+act_jipyo_value	
+growth_jipyo_value	
+safety_jipyo_value	
+business_month_avg	
+simillar_store_number	
+total_moving_people	
+10's_moving_people	
+20's_moving_people	
+30's_moving_people	
+40's_moving_people	
+50's_moving_people	
+60's_moving_people	
+c_month_sales_amount	
+10's_sales_rate	
+20's_sales_rate	
+30's_sales_rate	
+40's_sales_rate	
+50's_sales_rate	
+60's_sales_rate	
+10's_sales_amount	
+20's_sales_amount	
+30's_sales_amount	
+40's_sales_amount	
+50's_sales_amount	
+60's_sales_amount	
+store_number	
+man	
+woman	
+mon	
+tue	
+wed	
+thu	
+fri	
+sat	
+sun	
+weekend	
+total_living_people	
+10's_living_people	
+20's_living_people	
+30's_living_people	
+40's_living_people	
+50's_living_people	
+60's_living_people	
+cm_code_name
+
+
+from sklearn.datasets import make_blobs
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.cluster import KMeans
+from sklearn import datasets
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.preprocessing import MaxAbsScaler
+from sklearn.preprocessing import RobustScaler
+from sklearn.preprocessing import StandardScaler
+
+# 10대 매출비율,20대 매출비율 평균영업개월수 점포수 총 매출액
+data=pd.read_csv("plus_living.csv")
+data["total_living_people"]=data["total_living_people"] /1000
+data["idx"]=np.arange(31547)
+del data['Unnamed: 0']
+del data['cm_code_name']
+test=pd.DataFrame(data,columns=["idx","10's_sales_rate","20's_sales_rate","30's_sales_rate","40's_sales_rate","50's_sales_rate","60's_sales_rate"])
+
+
+#1
+a1 = pd.DataFrame(test,columns=["10's_sales_rate"])
+a1["idx"] = np.arange(31547)
+train_data = a1.values
+StandardScaler = StandardScaler()
+print(StandardScaler.fit(train_data))
+train_data_minMaxScaled = StandardScaler.transform(train_data)
+mi_df = pd.DataFrame(train_data_minMaxScaled, columns=['minMax_over','B'])
+del mi_df['B']
+test["10's_sales_rate_after"] = mi_df
+#2
+a2 = pd.DataFrame(test,columns=["20's_sales_rate"])
+a2["idx"] = np.arange(31547)
+train_data = a2.values
+train_data_minMaxScaled = StandardScaler.transform(train_data)
+mi_df = pd.DataFrame(train_data_minMaxScaled, columns=['minMax_over','B'])
+del mi_df['B']
+test["20's_sales_rate_after"] = mi_df
+#3
+a3 = pd.DataFrame(test,columns=["30's_sales_rate"])
+a3["idx"] = np.arange(31547)
+train_data = a3.values
+train_data_minMaxScaled = StandardScaler.transform(train_data)
+mi_df = pd.DataFrame(train_data_minMaxScaled, columns=['minMax_over','B'])
+del mi_df['B']
+
+test["30's_sales_rate_after"] = mi_df
+
+test
+#4
+a4 = pd.DataFrame(test,columns=["40's_sales_rate"])
+a4["idx"] = np.arange(31547)
+train_data = a4.values
+train_data_minMaxScaled = StandardScaler.transform(train_data)
+mi_df = pd.DataFrame(train_data_minMaxScaled, columns=['minMax_over','B'])
+
+del mi_df['B']
+test["40's_sales_rate_after"] = mi_df
+#5
+a5 = pd.DataFrame(test,columns=["50's_sales_rate"])
+a5["idx"] = np.arange(31547)
+train_data = a5.values
+train_data_minMaxScaled = StandardScaler.transform(train_data)
+mi_df = pd.DataFrame(train_data_minMaxScaled, columns=['minMax_over','B'])
+del mi_df['B']
+test["50's_sales_rate_after"] = mi_df
+
+#6
+a5 = pd.DataFrame(test,columns=["60's_sales_rate"])
+a5["idx"] = np.arange(31547)
+train_data = a5.values
+train_data_minMaxScaled = StandardScaler.transform(train_data)
+mi_df = pd.DataFrame(train_data_minMaxScaled, columns=['minMax_over','B'])
+del mi_df['B']
+test["60's_sales_rate_after"] = mi_df
+
+#clustering
+test_kmeans=pd.DataFrame(test,columns=["10's_sales_rate_after","20's_sales_rate_after","30's_sales_rate_after","40's_sales_rate_after","50's_sales_rate_after","60's_sales_rate_after"])
+data_points=test_kmeans.values
+kmeans=KMeans(n_clusters=5).fit(data_points)
+test_kmeans['cluster_id']=kmeans.labels_
+
+test_kmeans["idx"] = np.arange(31547)
+
+test_kmeans=pd.DataFrame(test_kmeans,columns=["cluster_id","idx"])
+#q=test_kmeans["10's_sales_rate_after","20's_sales_rate_after"]
+new=pd.merge(test,test_kmeans,on=["idx"])
+new1=pd.DataFrame(new,columns=["idx","cluster_id"])
+
+new=pd.merge(data,new1,on=["idx"])
+del new["idx"]
+# test0 = rateof_1020_business_stnum0=new[new['cluster_id']==0]
+# test1 = rateof_1020_business_stnum1=new[new['cluster_id']==1]
+# test2 = rateof_1020_business_stnum2=new[new['cluster_id']==2]
+# test3 = rateof_1020_business_stnum3=new[new['cluster_id']==3]
+# test4 = rateof_1020_business_stnum4=new[new['cluster_id']==4]
+
+new.to_csv("filename.csv", mode='w')
